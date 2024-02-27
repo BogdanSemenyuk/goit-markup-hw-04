@@ -32,6 +32,10 @@ section {
 
 img {
     display: block;
+    max-width: 100%;
+}
+svg {
+    display: block;
 }
 
 /* ========== Page Header Styles ========== */
@@ -77,6 +81,33 @@ img {
     line-height: 1.5;
     letter-spacing: 0.02em;
     padding: 24px 0;
+    display: block;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+.current {
+    color: #404bbf;
+}
+.nav-link:hover::after{
+    content: "";
+    background-color: #404BBF;
+    height: 4px;
+    border-radius: 2px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+}
+
+.current::after{
+    content: "";
+    background-color: #404BBF;
+    height: 4px;
+    border-radius: 2px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
 }
 .nav-link:hover,
 .nav-link:focus {
@@ -90,6 +121,7 @@ img {
 .address-list {
     display: flex;
     gap: 40px;
+    padding: 24px 0;
 }
 
 .address-link {
@@ -97,6 +129,7 @@ img {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address-link:hover,
 .address-link:focus {
@@ -113,6 +146,10 @@ img {
     background-color: #2E2F42;
     padding-top: 188px;
     padding-bottom: 188px;
+    background-image: linear-gradient( rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), 
+    url(../images/background_hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .main-title {
@@ -164,6 +201,20 @@ img {
 }
 .strategy-list-item{
     width: calc((100% - 3 * 24px) / 4);
+}
+.strategy-icon-inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    border: 1px solid #8e8f99;
+    border-radius: 4px;
+    background-color: #f4f4fd;
+    margin-bottom: 8px;
+}
+.strategy-icon{
+    display: block;
+    fill: none;
 }
 .strategy-title{
     position: absolute;
@@ -230,9 +281,36 @@ img {
     line-height: 1.5;
     text-align: center;
     letter-spacing: 0.02em;
+    margin-bottom: 8px;
 }
 .team-desk{
     padding: 32px 0;
+}
+.team-desk-item-contact{
+    width: 40px;
+    height: 40px;
+}
+.team-desk-link-contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.team-desk-link-contact:hover,
+.team-desk-link-contact:focus {
+    background-color: #404bbf;
+}
+.team-desk-list-contact{
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+.team-desk-icon-contact{
+    fill: #f4f4fd;
 }
 /* ========== /Page Section Our team styles ========== */
 
@@ -257,6 +335,36 @@ img {
 }
 .our-portfolio-list{
     width: calc((100% - 48px) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.our-portfolio-box{
+    position: relative;
+    overflow: hidden;
+}
+.our-portfolio-text-overlay{
+    background-color: #4d5ae5;
+    padding: 40px 32px;
+
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #f4f4fd;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.our-portfolio-list:hover {
+    box-shadow:
+    0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+.our-portfolio-list:hover .our-portfolio-text-overlay{
+    transform: translateY(0%);
 }
 .portfolio-desk{
     border: 1px solid #e7e9fc;
@@ -285,6 +393,13 @@ img {
     padding-top: 100px;
     padding-bottom: 100px;
 }
+.footer-container{
+    display: flex;
+    align-items: baseline;
+}
+.logo-container:not(:last-child) {
+    margin-right: 120px;
+}
 .page-footer .logo {
     display: inline-block;
     margin-bottom: 16px;
@@ -305,4 +420,36 @@ img {
     line-height: 1.5;
     letter-spacing: 0.02em;
     width: 264px;
+}
+.social-contact-title{
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.contact-social-list{
+    display: flex;
+    gap: 16px;
+}
+.contact-social-item{
+    width: 40px;
+    height: 40px;
+}
+.contact-social-link{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contact-social-link:hover,
+.contact-social-link:focus {
+    background-color: #31d0aa;
+}
+.contact-social-icon{
+    fill: #f4f4fd;
 }
